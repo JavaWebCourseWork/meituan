@@ -15,7 +15,7 @@
        					   http://www.springframework.org/schema/mvc/spring-mvc.xsd
        					   http://www.springframework.org/schema/tx 
        					   http://www.springframework.org/schema/tx/spring-tx.xsd"> 
-	<context:component-scan base-package="com.zhk.ccl"></context:component-scan>
+	<context:component-scan base-package="com.zhku.ccl"></context:component-scan>
 	
 	<!-- 第一步：配置数据源 -->
 	<context:property-placeholder location="classpath:jdbcInfo.properties"/>
@@ -38,7 +38,7 @@
 			 接口给的方法名必须和映射Statement的id一致
 	 -->
 	 <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-	 	<property name="basePackage" value="com.zhk.ccl"></property>
+	 	<property name="basePackage" value="com.zhku.ccl"></property>
 	 	<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
 	 </bean>
 	
@@ -54,6 +54,6 @@
     </tx:advice>
     <!-- 配置拦截service -->
     <aop:config>
-    	<aop:advisor advice-ref="txAdvice" pointcut="execution(* com.zhk.ccl.service.*.*(..))"/>
+    	<aop:advisor advice-ref="txAdvice" pointcut="execution(* com.zhku.ccl.service.*.*(..))"/>
     </aop:config>
 </beans>

@@ -20,10 +20,7 @@
   </filter-mapping>
   
   
-  <servlet-mapping>
-  <servlet-name>springmvc</servlet-name>
-  <url-pattern>/rest/*</url-pattern>
-  </servlet-mapping>
+
   
   <!-- 加载spring配置文件 -->
   <listener>
@@ -47,5 +44,10 @@
   	<servlet-name>springmvc</servlet-name>
   	<url-pattern>*.do</url-pattern>
   </servlet-mapping>
-  
+  <!-- 
+  <servlet-mapping>
+  	<servlet-name>springmvc</servlet-name>
+  	<url-pattern>/rest/*</url-pattern>
+  </servlet-mapping>
+   -->
  </web-app>
