@@ -222,4 +222,9 @@
     from users
     where uphone = #{uphone} and upassword = #{upassword}
   </select>
+  
+  <!-- 222222222222222222222222222222222222 -->
+  <update id="updateUroleByUid" parameterType="hashmap" > 
+  	update users set urole = (select did from dictionary where classify = '角色' and dstate = #{urole}) where uid = #{sid}
+  </update>
 </mapper>

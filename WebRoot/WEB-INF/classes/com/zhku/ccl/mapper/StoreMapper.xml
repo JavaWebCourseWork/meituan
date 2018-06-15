@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhku.ccl.mapper.StoreMapper" >
+  <resultMap id="BaseResultMap" type="com.zhku.ccl.domain.Store" >
+    <id column="sid" property="sid" jdbcType="INTEGER" />
+    <result column="sname" property="sname" jdbcType="VARCHAR" />
+    <result column="saddress" property="saddress" jdbcType="VARCHAR" />
+    <result column="sphone" property="sphone" jdbcType="VARCHAR" />
+    <result column="sstabusiness" property="sstabusiness" jdbcType="VARCHAR" />
+    <result column="sendbusiness" property="sendbusiness" jdbcType="VARCHAR" />
+    <result column="sstate" property="sstate" jdbcType="INTEGER" />
+    <result column="sfreight" property="sfreight" jdbcType="REAL" />
+    <result column="sstart" property="sstart" jdbcType="REAL" />
+    <result column="smeantime" property="smeantime" jdbcType="INTEGER" />
+    <result column="slicence" property="slicence" jdbcType="VARCHAR" />
+    <result column="smaster" property="smaster" jdbcType="VARCHAR" />
+    <result column="stagid" property="stagid" jdbcType="INTEGER" />
+    <result column="sstar" property="sstar" jdbcType="REAL" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    sid, sname, saddress, sphone, sstabusiness, sendbusiness, sstate, sfreight, sstart, 
+    smeantime, slicence, smaster, stagid, sstar
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.zhku.ccl.domain.StoreExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from store
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from store
+    where sid = #{sid,jdbcType=INTEGER}
+    
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from store
+    where sid = #{sid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.zhku.ccl.domain.StoreExample" >
+    delete from store
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zhku.ccl.domain.Store" >
+    insert into store (sid, sname, saddress, 
+      sphone, sstabusiness, sendbusiness, 
+      sstate, sfreight, sstart, 
+      smeantime, slicence, smaster, 
+      stagid, sstar)
+    values (#{sid,jdbcType=INTEGER}, #{sname,jdbcType=VARCHAR}, #{saddress,jdbcType=VARCHAR}, 
+      #{sphone,jdbcType=VARCHAR}, #{sstabusiness,jdbcType=VARCHAR}, #{sendbusiness,jdbcType=VARCHAR}, 
+      #{sstate,jdbcType=INTEGER}, #{sfreight,jdbcType=REAL}, #{sstart,jdbcType=REAL}, 
+      #{smeantime,jdbcType=INTEGER}, #{slicence,jdbcType=VARCHAR}, #{smaster,jdbcType=VARCHAR}, 
+      #{stagid,jdbcType=INTEGER}, #{sstar,jdbcType=REAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zhku.ccl.domain.Store" >
+    insert into store
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="sid != null" >
+        sid,
+      </if>
+      <if test="sname != null" >
+        sname,
+      </if>
+      <if test="saddress != null" >
+        saddress,
+      </if>
+      <if test="sphone != null" >
+        sphone,
+      </if>
+      <if test="sstabusiness != null" >
+        sstabusiness,
+      </if>
+      <if test="sendbusiness != null" >
+        sendbusiness,
+      </if>
+      <if test="sstate != null" >
+        sstate,
+      </if>
+      <if test="sfreight != null" >
+        sfreight,
+      </if>
+      <if test="sstart != null" >
+        sstart,
+      </if>
+      <if test="smeantime != null" >
+        smeantime,
+      </if>
+      <if test="slicence != null" >
+        slicence,
+      </if>
+      <if test="smaster != null" >
+        smaster,
+      </if>
+      <if test="stagid != null" >
+        stagid,
+      </if>
+      <if test="sstar != null" >
+        sstar,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="sid != null" >
+        #{sid,jdbcType=INTEGER},
+      </if>
+      <if test="sname != null" >
+        #{sname,jdbcType=VARCHAR},
+      </if>
+      <if test="saddress != null" >
+        #{saddress,jdbcType=VARCHAR},
+      </if>
+      <if test="sphone != null" >
+        #{sphone,jdbcType=VARCHAR},
+      </if>
+      <if test="sstabusiness != null" >
+        #{sstabusiness,jdbcType=VARCHAR},
+      </if>
+      <if test="sendbusiness != null" >
+        #{sendbusiness,jdbcType=VARCHAR},
+      </if>
+      <if test="sstate != null" >
+        #{sstate,jdbcType=INTEGER},
+      </if>
+      <if test="sfreight != null" >
+        #{sfreight,jdbcType=REAL},
+      </if>
+      <if test="sstart != null" >
+        #{sstart,jdbcType=REAL},
+      </if>
+      <if test="smeantime != null" >
+        #{smeantime,jdbcType=INTEGER},
+      </if>
+      <if test="slicence != null" >
+        #{slicence,jdbcType=VARCHAR},
+      </if>
+      <if test="smaster != null" >
+        #{smaster,jdbcType=VARCHAR},
+      </if>
+      <if test="stagid != null" >
+        #{stagid,jdbcType=INTEGER},
+      </if>
+      <if test="sstar != null" >
+        #{sstar,jdbcType=REAL},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zhku.ccl.domain.StoreExample" resultType="java.lang.Integer" >
+    select count(*) from store
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update store
+    <set >
+      <if test="record.sid != null" >
+        sid = #{record.sid,jdbcType=INTEGER},
+      </if>
+      <if test="record.sname != null" >
+        sname = #{record.sname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.saddress != null" >
+        saddress = #{record.saddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sphone != null" >
+        sphone = #{record.sphone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sstabusiness != null" >
+        sstabusiness = #{record.sstabusiness,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sendbusiness != null" >
+        sendbusiness = #{record.sendbusiness,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sstate != null" >
+        sstate = #{record.sstate,jdbcType=INTEGER},
+      </if>
+      <if test="record.sfreight != null" >
+        sfreight = #{record.sfreight,jdbcType=REAL},
+      </if>
+      <if test="record.sstart != null" >
+        sstart = #{record.sstart,jdbcType=REAL},
+      </if>
+      <if test="record.smeantime != null" >
+        smeantime = #{record.smeantime,jdbcType=INTEGER},
+      </if>
+      <if test="record.slicence != null" >
+        slicence = #{record.slicence,jdbcType=VARCHAR},
+      </if>
+      <if test="record.smaster != null" >
+        smaster = #{record.smaster,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stagid != null" >
+        stagid = #{record.stagid,jdbcType=INTEGER},
+      </if>
+      <if test="record.sstar != null" >
+        sstar = #{record.sstar,jdbcType=REAL},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update store
+    set sid = #{record.sid,jdbcType=INTEGER},
+      sname = #{record.sname,jdbcType=VARCHAR},
+      saddress = #{record.saddress,jdbcType=VARCHAR},
+      sphone = #{record.sphone,jdbcType=VARCHAR},
+      sstabusiness = #{record.sstabusiness,jdbcType=VARCHAR},
+      sendbusiness = #{record.sendbusiness,jdbcType=VARCHAR},
+      sstate = #{record.sstate,jdbcType=INTEGER},
+      sfreight = #{record.sfreight,jdbcType=REAL},
+      sstart = #{record.sstart,jdbcType=REAL},
+      smeantime = #{record.smeantime,jdbcType=INTEGER},
+      slicence = #{record.slicence,jdbcType=VARCHAR},
+      smaster = #{record.smaster,jdbcType=VARCHAR},
+      stagid = #{record.stagid,jdbcType=INTEGER},
+      sstar = #{record.sstar,jdbcType=REAL}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zhku.ccl.domain.Store" >
+    update store
+    <set >
+      <if test="sname != null" >
+        sname = #{sname,jdbcType=VARCHAR},
+      </if>
+      <if test="saddress != null" >
+        saddress = #{saddress,jdbcType=VARCHAR},
+      </if>
+      <if test="sphone != null" >
+        sphone = #{sphone,jdbcType=VARCHAR},
+      </if>
+      <if test="sstabusiness != null" >
+        sstabusiness = #{sstabusiness,jdbcType=VARCHAR},
+      </if>
+      <if test="sendbusiness != null" >
+        sendbusiness = #{sendbusiness,jdbcType=VARCHAR},
+      </if>
+      <if test="sstate != null" >
+        sstate = #{sstate,jdbcType=INTEGER},
+      </if>
+      <if test="sfreight != null" >
+        sfreight = #{sfreight,jdbcType=REAL},
+      </if>
+      <if test="sstart != null" >
+        sstart = #{sstart,jdbcType=REAL},
+      </if>
+      <if test="smeantime != null" >
+        smeantime = #{smeantime,jdbcType=INTEGER},
+      </if>
+      <if test="slicence != null" >
+        slicence = #{slicence,jdbcType=VARCHAR},
+      </if>
+      <if test="smaster != null" >
+        smaster = #{smaster,jdbcType=VARCHAR},
+      </if>
+      <if test="stagid != null" >
+        stagid = #{stagid,jdbcType=INTEGER},
+      </if>
+      <if test="sstar != null" >
+        sstar = #{sstar,jdbcType=REAL},
+      </if>
+    </set>
+    where sid = #{sid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zhku.ccl.domain.Store" >
+    update store
+    set sname = #{sname,jdbcType=VARCHAR},
+      saddress = #{saddress,jdbcType=VARCHAR},
+      sphone = #{sphone,jdbcType=VARCHAR},
+      sstabusiness = #{sstabusiness,jdbcType=VARCHAR},
+      sendbusiness = #{sendbusiness,jdbcType=VARCHAR},
+      sstate = #{sstate,jdbcType=INTEGER},
+      sfreight = #{sfreight,jdbcType=REAL},
+      sstart = #{sstart,jdbcType=REAL},
+      smeantime = #{smeantime,jdbcType=INTEGER},
+      slicence = #{slicence,jdbcType=VARCHAR},
+      smaster = #{smaster,jdbcType=VARCHAR},
+      stagid = #{stagid,jdbcType=INTEGER},
+      sstar = #{sstar,jdbcType=REAL}
+    where sid = #{sid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -2,6 +2,8 @@ package com.zhku.ccl.mapper;
 
 import com.zhku.ccl.domain.Users;
 import com.zhku.ccl.domain.UsersExample;
+
+import java.util.HashMap;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
@@ -29,4 +31,6 @@ public interface UsersMapper {
     int updateByPrimaryKeySelective(Users record);
 
     int updateByPrimaryKey(Users record);
+
+	void updateUroleByUid(HashMap<String, Object> map);
 }

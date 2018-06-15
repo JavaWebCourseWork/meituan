@@ -11,7 +11,13 @@ public class Users {
 
     private Integer urole;
 
-    public Integer getUid() {
+    @Override
+	public String toString() {
+		return "Users [uid=" + uid + ", uphone=" + uphone + ", upassword=" + upassword + ", uheadportrait="
+				+ uheadportrait + ", urole=" + urole + "]";
+	}
+
+	public Integer getUid() {
         return uid;
     }
 
