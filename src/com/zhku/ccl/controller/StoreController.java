@@ -36,4 +36,30 @@ public class StoreController {
 		model.addAttribute("storeData", map);
 		return "seller/storeAll";
 	}
+	
+	/**
+	 * 记录用户点菜
+	 * 接收店铺ID、商品ID、商品数量存放在一个Map中，并放入session中，
+	 * 一个Map记录一个用户在一个店铺的点餐情况
+	 * @param session
+	 * @param sid
+	 * @param fid
+	 * @param count
+	 */
+	@RequestMapping("alterCount")
+	public void alterFoodCount(HttpSession session,String sid,String fid,String count){
+		Object attr = session.getAttribute(sid);
+		if(attr == null){
+			HashMap map = new HashMap();
+			session.setAttribute(sid, map);
+		}
+		HashMap map = (HashMap) session.getAttribute(sid);
+		int num = Integer.parseInt(count);
+		if(num == 0){
+			map.remove(fid);
+		}else{
+			map.put(fid, num);
+		}
+		return;
+	}
 }
