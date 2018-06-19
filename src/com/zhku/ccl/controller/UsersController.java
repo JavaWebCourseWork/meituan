@@ -4,10 +4,12 @@ package com.zhku.ccl.controller;
  */
 
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -37,13 +39,13 @@ public class UsersController {
 	 * 进入到登录界面
 	 * @return
 	 */
-	@RequestMapping("account")
-	public String account(HttpSession session){
+	@RequestMapping("login")
+	public String login(HttpSession session){
 		Object attribute = session.getAttribute("uid");
 		if(attribute == null){
 			return "account/login";
 		}else{
-			return "forward:/user/regStore.do";
+			return "account/login";
 		}
 		
 	}
@@ -52,21 +54,32 @@ public class UsersController {
 	 *进入到注册界面
 	 * @return
 	 */
-	@RequestMapping("reg")
-	public String showRegister(){
+	@RequestMapping("register")
+	public String register(){
 		return "account/register";
 	}
+	
+	@RequestMapping("checkPhone")
+	public void checkPhone(HttpServletResponse response,Users user) throws IOException{
+		int flag = usersServiceImpl.checkRegister(user);
+		if(flag == 0){
+			response.getWriter().write("No");
+		}else{
+			response.getWriter().write("Yes");
+		}
+		
+	}	
 	
 	/**
 	 * 接收表单数据并进行注册
 	 * @param user
 	 * @return
 	 */
-	@RequestMapping("register")
-	public String register(Users user,Model model){
+	@RequestMapping("checkRegister")
+	public String checkRegister(Users user,Model model){
 		int flag = usersServiceImpl.register(user);
 		if(flag == 1){
-			model.addAttribute("refleshUrl", "/user/account.do");
+			model.addAttribute("refleshUrl", "/user/login.do");
 			model.addAttribute("promptMsg", "注册成功！！！");
 			model.addAttribute("pageName", "登录");
 			return "success";
@@ -78,11 +91,13 @@ public class UsersController {
 	 * 接收表单数据并进行登录
 	 * @return
 	 */
-	@RequestMapping("login")
-	public String login(HttpSession session,Users user){
+	@RequestMapping("checkLogin")
+	public String checkLogin(HttpSession session,Users user,Model model){
 		Users dbUser = usersServiceImpl.login(user);
 		if(dbUser == null){
-			return "error";
+			model.addAttribute(user);
+			model.addAttribute("errorMsg", "用户名不存在或密码密码错误!");
+			return "forward:/user/login.do";
 		}else{
 			session.setAttribute("uid", dbUser.getUid());
 			return "index";

@@ -1,0 +1,115 @@
+.header {
+    position: relative;
+    width: 980px;
+    height: auto;
+    margin: 40px auto 30px;
+}
+.header .site-logo {
+    width: 60px;
+    height: 35px;
+	color: black;    
+	text-decoration: none;
+	font-size:25px;
+	cursor:pointer;
+	text-align:center;
+	background:#ccc;
+}
+.site-body {
+    margin: 0 auto 70px;
+    width: 980px;
+}
+
+/*登录div*/
+.login-div{
+    width: 273px;
+    height: auto;
+    padding: 30px 32px;
+    background: #fff;
+    margin-top: 20px;
+    box-shadow: 0 0 6px rgba(0,0,0,.08);
+    -moz-box-shadow: 0 0 6px rgba(0,0,0,.08);
+    -webkit-box-shadow: 0 0 6px rgba(0,0,0,.08);
+}
+.login-div .toptitle {
+    height: 44px;
+    line-height: 44px;
+    font-size: 18px;
+    color: #2f82ff;
+}
+.login-div #errorMsg{color:red;}
+.log-line {
+    text-align: center;
+    margin-bottom: 15px;
+    position: relative;
+    height: 44px;
+    width: 269px;
+    border: 1px solid #fff;
+}
+.log-line .log-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 209px;
+    height: 38px;
+    line-height: 38px;
+    background: transparent;
+    font-size: 14px;
+    padding: 2px 10px 2px 50px;
+    outline: 0;
+	border-width: 1px;
+    z-index: 10;
+}
+.log-line-hover .log-input {
+    border: 1px solid #2f82ff;
+    color: #000;
+}
+
+/*图标*/
+.log-line .logIco {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 24px;
+    height: 24px;
+    background: url(cart.png) -101px 0 no-repeat;
+    _background: url(cart.png) -101px 0 no-repeat;
+}
+/*忘记密码*/
+.goin1 {
+    padding-top:0px;
+}
+.goin1 a {
+    text-decoration: none;
+    font-size: 12px;
+    color: #2f82ff;
+}
+.login-div .goreg{font-size: 12px;}
+/*提交按钮*/
+.worn {
+    display: none;
+    font-size: 12px;
+    color: #343434;
+    width: 239px;
+    height: 25px;
+    line-height: 25px;
+    text-align: left;
+    padding-left: 28px;
+    margin-bottom: 5px;
+	margin-top:40px;
+    border: 1px solid #ffe792;
+    background: rgb(255,254,223);
+}
+.loginBtn, .regBtn {
+    float: left;
+    width: 271px;
+    height: 44px;
+    line-height: 44px;
+    color: #fff;
+    text-align: center;
+    font-size: 18px;
+    cursor: pointer;
+    background: #888;
+	margin-bottom:20px;
+	margin-top:5px;
+	border-radius:5px;
+}

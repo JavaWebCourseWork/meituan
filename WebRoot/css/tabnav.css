@@ -35,3 +35,28 @@
   border-bottom: 3px solid #ffa627;
   height: 47px;
 }
+.tabContent {
+    padding: 25px 20px 12px;
+}
+.tabContent ul li {
+    /* float: left; */
+    width: 118px;
+    height: 24px;
+    line-height: 24px;
+    margin-right: 5px;
+    margin-bottom: 12px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.tabContent .active .type, .tabContent .type:hover {
+    color: #ffa735;
+}
+.tabContent .type {
+    padding: 5px 5px;
+    color: #535353;
+    height: 14px;
+    position: relative;
+    font-size: 14px;
+    line-height: 14px;
+}

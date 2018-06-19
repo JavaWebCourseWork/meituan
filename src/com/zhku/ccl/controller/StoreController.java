@@ -1,6 +1,7 @@
 package com.zhku.ccl.controller;
 
 import java.util.HashMap;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
@@ -9,6 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.zhku.ccl.domain.Food;
+import com.zhku.ccl.domain.Foodtag;
 import com.zhku.ccl.domain.Store;
 import com.zhku.ccl.service.StoreService;
 
@@ -32,7 +35,12 @@ public class StoreController {
 	public String getStoreInfo(HttpSession session,Model model){
 		HashMap map = new HashMap();
 		Store store = storeServiceImpl.getStoreInfo((Integer)session.getAttribute("uid"));
+		List<Foodtag> foodTag = storeServiceImpl.getStoreMune((Integer)session.getAttribute("uid"));
+		List<Food> foodList = storeServiceImpl.getStoreFoods((Integer)session.getAttribute("uid"));
+		System.out.println(foodList);
 		map.put("store", store);
+		map.put("menu", foodTag);
+		map.put("items", foodList);
 		model.addAttribute("storeData", map);
 		return "seller/storeAll";
 	}

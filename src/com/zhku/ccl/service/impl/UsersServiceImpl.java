@@ -24,6 +24,18 @@ public class UsersServiceImpl implements UsersService {
 	private DictionaryMapper dictionaryMapper;
 	@Resource
 	private StoreMapper storeMapper;
+	
+	/**
+	 * 手机号码验证
+	 */
+	public int checkRegister(Users user) {
+		Users dbUser = usersMapper.selectByPhone(user.getUphone());
+		if(dbUser == null){
+			return 1;
+		}
+		return 0;
+		
+	}
 	/**
 	 * 注册验证
 	 */

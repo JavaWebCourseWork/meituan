@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhku.ccl.mapper.FoodMapper" >
+  <resultMap id="BaseResultMap" type="com.zhku.ccl.domain.Food" >
+    <id column="fid" property="fid" jdbcType="INTEGER" />
+    <result column="sid" property="sid" jdbcType="INTEGER" />
+    <result column="fname" property="fname" jdbcType="VARCHAR" />
+    <result column="fimage" property="fimage" jdbcType="VARCHAR" />
+    <result column="fprice" property="fprice" jdbcType="REAL" />
+    <result column="ftagid" property="ftagid" jdbcType="INTEGER" />
+    <result column="fisban" property="fisban" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    fid, sid, fname, fimage, fprice, ftagid, fisban
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.zhku.ccl.domain.FoodExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from food
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from food
+    where fid = #{fid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from food
+    where fid = #{fid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.zhku.ccl.domain.FoodExample" >
+    delete from food
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zhku.ccl.domain.Food" >
+    insert into food (fid, sid, fname, 
+      fimage, fprice, ftagid, 
+      fisban)
+    values (#{fid,jdbcType=INTEGER}, #{sid,jdbcType=INTEGER}, #{fname,jdbcType=VARCHAR}, 
+      #{fimage,jdbcType=VARCHAR}, #{fprice,jdbcType=REAL}, #{ftagid,jdbcType=INTEGER}, 
+      #{fisban,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zhku.ccl.domain.Food" >
+    insert into food
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="fid != null" >
+        fid,
+      </if>
+      <if test="sid != null" >
+        sid,
+      </if>
+      <if test="fname != null" >
+        fname,
+      </if>
+      <if test="fimage != null" >
+        fimage,
+      </if>
+      <if test="fprice != null" >
+        fprice,
+      </if>
+      <if test="ftagid != null" >
+        ftagid,
+      </if>
+      <if test="fisban != null" >
+        fisban,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="fid != null" >
+        #{fid,jdbcType=INTEGER},
+      </if>
+      <if test="sid != null" >
+        #{sid,jdbcType=INTEGER},
+      </if>
+      <if test="fname != null" >
+        #{fname,jdbcType=VARCHAR},
+      </if>
+      <if test="fimage != null" >
+        #{fimage,jdbcType=VARCHAR},
+      </if>
+      <if test="fprice != null" >
+        #{fprice,jdbcType=REAL},
+      </if>
+      <if test="ftagid != null" >
+        #{ftagid,jdbcType=INTEGER},
+      </if>
+      <if test="fisban != null" >
+        #{fisban,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zhku.ccl.domain.FoodExample" resultType="java.lang.Integer" >
+    select count(*) from food
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update food
+    <set >
+      <if test="record.fid != null" >
+        fid = #{record.fid,jdbcType=INTEGER},
+      </if>
+      <if test="record.sid != null" >
+        sid = #{record.sid,jdbcType=INTEGER},
+      </if>
+      <if test="record.fname != null" >
+        fname = #{record.fname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fimage != null" >
+        fimage = #{record.fimage,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fprice != null" >
+        fprice = #{record.fprice,jdbcType=REAL},
+      </if>
+      <if test="record.ftagid != null" >
+        ftagid = #{record.ftagid,jdbcType=INTEGER},
+      </if>
+      <if test="record.fisban != null" >
+        fisban = #{record.fisban,jdbcType=BIT},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update food
+    set fid = #{record.fid,jdbcType=INTEGER},
+      sid = #{record.sid,jdbcType=INTEGER},
+      fname = #{record.fname,jdbcType=VARCHAR},
+      fimage = #{record.fimage,jdbcType=VARCHAR},
+      fprice = #{record.fprice,jdbcType=REAL},
+      ftagid = #{record.ftagid,jdbcType=INTEGER},
+      fisban = #{record.fisban,jdbcType=BIT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zhku.ccl.domain.Food" >
+    update food
+    <set >
+      <if test="sid != null" >
+        sid = #{sid,jdbcType=INTEGER},
+      </if>
+      <if test="fname != null" >
+        fname = #{fname,jdbcType=VARCHAR},
+      </if>
+      <if test="fimage != null" >
+        fimage = #{fimage,jdbcType=VARCHAR},
+      </if>
+      <if test="fprice != null" >
+        fprice = #{fprice,jdbcType=REAL},
+      </if>
+      <if test="ftagid != null" >
+        ftagid = #{ftagid,jdbcType=INTEGER},
+      </if>
+      <if test="fisban != null" >
+        fisban = #{fisban,jdbcType=BIT},
+      </if>
+    </set>
+    where fid = #{fid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zhku.ccl.domain.Food" >
+    update food
+    set sid = #{sid,jdbcType=INTEGER},
+      fname = #{fname,jdbcType=VARCHAR},
+      fimage = #{fimage,jdbcType=VARCHAR},
+      fprice = #{fprice,jdbcType=REAL},
+      ftagid = #{ftagid,jdbcType=INTEGER},
+      fisban = #{fisban,jdbcType=BIT}
+    where fid = #{fid,jdbcType=INTEGER}
+  </update>
+</mapper>

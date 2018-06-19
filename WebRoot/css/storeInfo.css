@@ -250,13 +250,19 @@
 
 
 
-/*鍒嗙被*/
-.cate-tab-area {
-    background-color: #ffffff;
-}
+/*商品展示*/
 .food-nav .category {
     margin-top: 14px;
     background: #fff;
+}
+
+.food-nav .title,
+.food-nav .title-blank {
+    height: 35px;
+    font-size: 16px;
+    padding-left: 19px;
+    padding-top: 15px;
+    background-color: #fff;
 }
 .food-nav .title {
     border-bottom: 1px solid #e5e5e5;
@@ -277,6 +283,10 @@
 .title-blank .tag-na {
     font-weight: normal;
 }
+.food-nav .title .online-pricetag,
+.food-nav .title-blank .online-pricetag {
+    margin-right: 5px;
+}
 .pic-food {
     float: left;
     width: 219px;
@@ -293,9 +303,68 @@
 }
 
 
+.pic-food-cont {
+    border-bottom: 1px solid #ebebeb;
+    overflow: hidden;
+}
+.pic-food {
+    float: left;
+    width: 219px;
+    height: 251px;
+    border-right: 1px dashed #e5e5e5;
+    border-bottom: 1px dashed #e5e5e5;
+    overflow: hidden;
+}
+
+.pic-food .price .only {
+    font-size: 14px;
+    color: #ff5a5a;
+    font-weight: bold;
+}
+.pic-food .avatar,
+.pic-food .np,
+.pic-food .labels {
+    width: 170px;
+}
+.pic-food .avatar {
+    position: relative;
+    height: 127px;
+    margin: 20px auto 0;
+}
+.pic-food .avatar img.food-shape {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.pic-food .np {
+    margin: 12px auto 0;
+    font-size: 14px;
+    color: #333;
+    font-weight: bold;
+}
+
+.pic-food .np .name {
+    display: block;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.pic-food .labels {
+    margin: 8px auto 0;
+}
+
+.pic-food .labels .price {
+    margin-top: 3px;
+}
 
 
-/*鍟嗗搧灞曠ず*/
+
+
+/*商品展示之添加按钮*/
 .contextCannotSelected{ -webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}
 .food-addcart{
 	    width: 24px;
@@ -317,3 +386,5 @@
 	border-radius:6px;
 	margin: 2px 8px 0 0;
 }
+
+

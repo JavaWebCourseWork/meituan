@@ -6,6 +6,11 @@ $(function(){
 		$(".ori-foodtype-nav").children("ul").hide();
 		$(".ori-foodtype-nav").children("ul").eq($(this).index()).show();
 	});
+	//点击菜单选项，改变样式
+	$("#tabClassify li").click(function(){
+		$(this).siblings().removeClass("active");
+		$(this).addClass("active");
+	});
 	
 	//为购物车添加显示和隐藏
 		$(".cart-footer").click(function(){

@@ -18,4 +18,7 @@ public interface UsersService {
 
 	int insertStore(Store store);
 
+	int checkRegister(Users user);
+
+
 }
