@@ -3,7 +3,7 @@ package com.zhku.ccl.domain;
 public class Dictionary {
     private Integer did;
 
-    private String classify;
+    private String dclassify;
 
     private String dstate;
 
@@ -15,12 +15,12 @@ public class Dictionary {
         this.did = did;
     }
 
-    public String getClassify() {
-        return classify;
+    public String getDclassify() {
+        return dclassify;
     }
 
-    public void setClassify(String classify) {
-        this.classify = classify == null ? null : classify.trim();
+    public void setDclassify(String dclassify) {
+        this.dclassify = dclassify == null ? null : dclassify.trim();
     }
 
     public String getDstate() {
@@ -30,9 +30,4 @@ public class Dictionary {
     public void setDstate(String dstate) {
         this.dstate = dstate == null ? null : dstate.trim();
     }
-
-	@Override
-	public String toString() {
-		return "Dictionary [did=" + did + ", classify=" + classify + ", dstate=" + dstate + "]";
-	}
 }

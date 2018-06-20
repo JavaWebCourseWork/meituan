@@ -27,7 +27,7 @@
 						<span id="errorMsg">${errorMsg }</span>
 						<div class="clear" style="font-size:0px;"></div>
 						<div class="log-line log-line-hover" id="rowCacct">
-							<input name="uphone" value="${uphone}" id="log-cacct" type="text" autocomplete="off" maxlength="11" class="log-input" placeholder="手机号码">
+							<input name="uphone" value="${uphone}" id="log-cacct" type="text" maxlength="11" class="log-input" placeholder="手机号码">
 							<div class="logIco">&nbsp;</div>
 						</div>
 						<div class="log-line" id="rowPwd">

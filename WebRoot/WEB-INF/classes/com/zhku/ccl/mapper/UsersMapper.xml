@@ -5,8 +5,8 @@
     <id column="uid" property="uid" jdbcType="INTEGER" />
     <result column="uphone" property="uphone" jdbcType="VARCHAR" />
     <result column="upassword" property="upassword" jdbcType="VARCHAR" />
-    <result column="uheadportrait" property="uheadportrait" jdbcType="VARCHAR" />
-    <result column="urole" property="urole" jdbcType="INTEGER" />
+    <result column="uhead" property="uhead" jdbcType="VARCHAR" />
+    <result column="did" property="did" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -67,7 +67,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    uid, uphone, upassword, uheadportrait, urole
+    uid, uphone, upassword, uhead, did
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.zhku.ccl.domain.UsersExample" >
     select
@@ -101,9 +101,9 @@
   </delete>
   <insert id="insert" parameterType="com.zhku.ccl.domain.Users" >
     insert into users (uid, uphone, upassword, 
-      uheadportrait, urole)
+      uhead, did)
     values (#{uid,jdbcType=INTEGER}, #{uphone,jdbcType=VARCHAR}, #{upassword,jdbcType=VARCHAR}, 
-      #{uheadportrait,jdbcType=VARCHAR}, #{urole,jdbcType=INTEGER})
+      #{uhead,jdbcType=VARCHAR}, #{did,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.zhku.ccl.domain.Users" >
     insert into users
@@ -117,11 +117,11 @@
       <if test="upassword != null" >
         upassword,
       </if>
-      <if test="uheadportrait != null" >
-        uheadportrait,
+      <if test="uhead != null" >
+        uhead,
       </if>
-      <if test="urole != null" >
-        urole,
+      <if test="did != null" >
+        did,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -134,11 +134,11 @@
       <if test="upassword != null" >
         #{upassword,jdbcType=VARCHAR},
       </if>
-      <if test="uheadportrait != null" >
-        #{uheadportrait,jdbcType=VARCHAR},
+      <if test="uhead != null" >
+        #{uhead,jdbcType=VARCHAR},
       </if>
-      <if test="urole != null" >
-        #{urole,jdbcType=INTEGER},
+      <if test="did != null" >
+        #{did,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -160,11 +160,11 @@
       <if test="record.upassword != null" >
         upassword = #{record.upassword,jdbcType=VARCHAR},
       </if>
-      <if test="record.uheadportrait != null" >
-        uheadportrait = #{record.uheadportrait,jdbcType=VARCHAR},
+      <if test="record.uhead != null" >
+        uhead = #{record.uhead,jdbcType=VARCHAR},
       </if>
-      <if test="record.urole != null" >
-        urole = #{record.urole,jdbcType=INTEGER},
+      <if test="record.did != null" >
+        did = #{record.did,jdbcType=INTEGER},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -176,8 +176,8 @@
     set uid = #{record.uid,jdbcType=INTEGER},
       uphone = #{record.uphone,jdbcType=VARCHAR},
       upassword = #{record.upassword,jdbcType=VARCHAR},
-      uheadportrait = #{record.uheadportrait,jdbcType=VARCHAR},
-      urole = #{record.urole,jdbcType=INTEGER}
+      uhead = #{record.uhead,jdbcType=VARCHAR},
+      did = #{record.did,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -191,11 +191,11 @@
       <if test="upassword != null" >
         upassword = #{upassword,jdbcType=VARCHAR},
       </if>
-      <if test="uheadportrait != null" >
-        uheadportrait = #{uheadportrait,jdbcType=VARCHAR},
+      <if test="uhead != null" >
+        uhead = #{uhead,jdbcType=VARCHAR},
       </if>
-      <if test="urole != null" >
-        urole = #{urole,jdbcType=INTEGER},
+      <if test="did != null" >
+        did = #{did,jdbcType=INTEGER},
       </if>
     </set>
     where uid = #{uid,jdbcType=INTEGER}
@@ -204,10 +204,12 @@
     update users
     set uphone = #{uphone,jdbcType=VARCHAR},
       upassword = #{upassword,jdbcType=VARCHAR},
-      uheadportrait = #{uheadportrait,jdbcType=VARCHAR},
-      urole = #{urole,jdbcType=INTEGER}
+      uhead = #{uhead,jdbcType=VARCHAR},
+      did = #{did,jdbcType=INTEGER}
     where uid = #{uid,jdbcType=INTEGER}
   </update>
+  
+  
   <!-- 3333333333333333333333333333333333333333333333333333333333333333333333333  -->
   <select id="selectByPhone" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
@@ -225,6 +227,6 @@
   
   <!-- 222222222222222222222222222222222222 -->
   <update id="updateUroleByUid" parameterType="hashmap" > 
-  	update users set urole = (select did from dictionary where classify = '角色' and dstate = #{urole}) where uid = #{sid}
+  	update users set did = (select did from dictionary where dclassify = '角色' and dstate = #{did}) where uid = #{sid}
   </update>
 </mapper>

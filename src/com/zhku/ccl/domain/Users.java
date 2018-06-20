@@ -1,5 +1,7 @@
 package com.zhku.ccl.domain;
 
+import java.util.List;
+
 public class Users {
     private Integer uid;
 
@@ -7,14 +9,25 @@ public class Users {
 
     private String upassword;
 
-    private String uheadportrait;
+    private String uhead;
 
-    private Integer urole;
+    private Integer did;
+  //--------------------------------
+    private List<Orders> ordersList;
+    
 
     @Override
 	public String toString() {
-		return "Users [uid=" + uid + ", uphone=" + uphone + ", upassword=" + upassword + ", uheadportrait="
-				+ uheadportrait + ", urole=" + urole + "]";
+		return "Users [uid=" + uid + ", uphone=" + uphone + ", upassword=" + upassword + ", uhead=" + uhead + ", did="
+				+ did + ", ordersList=" + ordersList + "]";
+	}
+
+	public List<Orders> getOrdersList() {
+		return ordersList;
+	}
+
+	public void setOrdersList(List<Orders> ordersList) {
+		this.ordersList = ordersList;
 	}
 
 	public Integer getUid() {
@@ -41,19 +54,19 @@ public class Users {
         this.upassword = upassword == null ? null : upassword.trim();
     }
 
-    public String getUheadportrait() {
-        return uheadportrait;
+    public String getUhead() {
+        return uhead;
     }
 
-    public void setUheadportrait(String uheadportrait) {
-        this.uheadportrait = uheadportrait == null ? null : uheadportrait.trim();
+    public void setUhead(String uhead) {
+        this.uhead = uhead == null ? null : uhead.trim();
     }
 
-    public Integer getUrole() {
-        return urole;
+    public Integer getDid() {
+        return did;
     }
 
-    public void setUrole(Integer urole) {
-        this.urole = urole;
+    public void setDid(Integer did) {
+        this.did = did;
     }
 }

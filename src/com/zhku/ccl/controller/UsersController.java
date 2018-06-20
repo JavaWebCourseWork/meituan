@@ -110,9 +110,14 @@ public class UsersController {
 	 */
 	@RequestMapping("regStore")
 	public String regStore(HttpSession session,Model model){
-		model.addAttribute("slicence", session.getAttribute("slicence"));
-		model.addAttribute("smaster", session.getAttribute("smaster"));
-		System.out.println(session.getAttribute("slicence")+"---"+session.getAttribute("smaster"));
+		Object slicence = session.getAttribute("slicence");
+		Object smaster = session.getAttribute("smaster");
+		if(slicence != null){			
+			model.addAttribute("slicence", slicence);
+		}
+		if(smaster != null){			
+			model.addAttribute("smaster", smaster);
+		}
 		return "account/regMasterInfo";
 		
 	}

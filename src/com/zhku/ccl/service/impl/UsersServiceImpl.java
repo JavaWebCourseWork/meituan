@@ -64,7 +64,7 @@ public class UsersServiceImpl implements UsersService {
 	public List<Dictionary> getDictionary(String string) {
 		DictionaryExample example = new DictionaryExample();
 		Criteria criteria = example.createCriteria();
-		criteria.andClassifyEqualTo(string);
+		criteria.andDclassifyEqualTo(string);
 		List<Dictionary> list = dictionaryMapper.selectByExample(example);
 		return list;
 	}

@@ -15,4 +15,6 @@ public interface StoreService {
 
 	List<Food> getStoreFoods(Integer attribute);
 
+	int updateStoreInfo(Store store);
+
 }

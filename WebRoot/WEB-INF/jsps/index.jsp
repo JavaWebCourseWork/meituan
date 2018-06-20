@@ -10,7 +10,8 @@
   </head>
   
   <body>
-    <a href="${pageContext.request.contextPath }/user/account.do">申请开店</a><br>
+    <a href="${pageContext.request.contextPath }/user/regStore.do">申请开店</a><br>
     <a href="${pageContext.request.contextPath }/store/showStore.do">进入店铺</a><br>
+    <a href="${pageContext.request.contextPath }/store/showStoreInfo.do">店铺信息</a><br>
   </body>
 </html>

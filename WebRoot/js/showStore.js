@@ -36,10 +36,12 @@ $(function(){
 		
 		//改变服务端商品数量
 		function alterServiceCount(DBFoodId,foodNumber){
+			alert($("#sid").val());
 			$.ajax({
 				type:'POST',
 				url:'/meituan/store/alterCount.do',
-				data:{sid : $("#sid").val(),fid:DBFoodId,count:foodNumber}			
+				data:{sid : $("#sid").val(),fid:DBFoodId,count:foodNumber},
+				success:function(){}
 			});
 		}
 		
@@ -66,13 +68,14 @@ $(function(){
 		
 		//加入购物车并显示
 		function alterCartContent(buttumItem,foodNumber){
-				if(foodNumber==0){
-					buttumItem.remove();
-				}
 				var foodId = buttumItem.attr("id");
 				var dbFoodId = foodId.substring(5);
 				var foodPri = buttumItem.siblings(".price").children().text();
 				var cartFoodId = "#cart-"+foodId;
+				if(foodNumber==0){
+					$(cartFoodId).remove();
+					return dbFoodId;
+				}
 				if($(cartFoodId).size()>0){
 					$(cartFoodId).find(".txt-count").val(foodNumber);
 				}else{
@@ -86,7 +89,7 @@ $(function(){
 					$(".shopping-cart ul").append(newStr);
 					$(".shopping-cart").trigger("create");
 					//通过购物车添加商品数量
-					$("body").on("click",".plus",function(){
+					$(".plus").off("click").on("click",function(){
 						var cartFoodId = $(this).closest("li").attr("id");
 						var foodId = cartFoodId.substring(5);
 						var foodNumber = alterFoodCount($("#"+foodId),true);
@@ -94,7 +97,7 @@ $(function(){
 						alterServiceCount(DBFoodId,foodNumber);
 					});
 					//通过购物车减少商品数量
-					$("body").on("click",".minus",function (){
+					$(".minus").off("click").on("click",function (){
 						var cartFoodId = $(this).closest("li").attr("id");
 						var foodId = cartFoodId.substring(5);
 						var foodNumber = alterFoodCount($("#"+foodId),false);
@@ -102,7 +105,7 @@ $(function(){
 						alterServiceCount(DBFoodId,foodNumber);
 					});
 					//通过输入框修改商品数量
-					$("body").on("blur",".txt-count",function(){
+					$(".txt-count").off("blur").on("blur",function(){
 						if($(this).val().trim()==""){
 							alert("输入错误");
 							return;

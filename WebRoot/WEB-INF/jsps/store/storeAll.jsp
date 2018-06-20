@@ -16,7 +16,7 @@
   <body>
   <div class="page-wrap"><div class="inner-wrap">
   	<div class="rest-info">	
-  		<input id="sid" type="hidden" value="${storeData.store.sid }"/>
+  		
   	    <div class="right-bar fr clearfix ct-lightgrey">	
 		      <div class="fl average-speed">
 		          <div class="desc">平均送餐时间</div>
@@ -134,12 +134,14 @@
 					</div>
 	
 					<div class="labels clearfix">
-						<div id="food-1" class="food-addcart contextCannotSelected fr">+</div>
+						<div id="food-1111" class="food-addcart contextCannotSelected fr">+</div>
 						<span id="food776508279-cart-num" class="food-number fr" style="display:none;">0</span>
 					    <div class="price fl"><div class="only">¥42</div></div>
 					</div>
 			  	</div>
 	 		</div>	
+	 		
+	 		
 		</div>	
 		
 		
@@ -189,7 +191,8 @@
   	？？营业执照，法人名称？？
   	
   	 <div class="shopping-cart clearfix">
-	    <form method="post" action="/order/shoppingcart" id="shoppingCartForm">
+	    <form method="post" action="${pageContext.request.contextPath}/orders/topayorder.do" id="shoppingCartForm">
+	    	<input id="sid" name="sid" type="hidden" value="${storeData.store.sid }"/>
 	  	    <div class="order-list hideCart" style="top: -257px;">
 	  	      <div class="title">
 	            <span class="fl buy-title">购物车</span>

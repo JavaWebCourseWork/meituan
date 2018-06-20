@@ -42,7 +42,24 @@ public class StoreController {
 		map.put("menu", foodTag);
 		map.put("items", foodList);
 		model.addAttribute("storeData", map);
-		return "seller/storeAll";
+		return "store/storeAll";
+	}
+	
+	
+	@RequestMapping("showStoreInfo")
+	public String getStoreDetailInfo(HttpSession session,Model model){
+		int uid = (Integer) session.getAttribute("uid");		
+		Store dbStore = storeServiceImpl.getStoreInfo(uid);
+		model.addAttribute("store", dbStore);		
+		return "store/storeInfo";
+	}
+	
+	@RequestMapping("updateStoreInfo")
+	public String updateStoreInfo(HttpSession session,Store store){
+		int uid = (Integer) session.getAttribute("uid");
+		store.setSid(uid);
+		storeServiceImpl.updateStoreInfo(store);
+		return "forward:storeInfo.do";
 	}
 	
 	/**
@@ -57,16 +74,18 @@ public class StoreController {
 	@RequestMapping("alterCount")
 	public void alterFoodCount(HttpSession session,String sid,String fid,String count){
 		Object attr = session.getAttribute(sid);
+		System.out.println(attr);
+		System.out.println(sid+"  "+fid+"   "+count);
 		if(attr == null){
-			HashMap map = new HashMap();
+			HashMap<String,String> map = new HashMap<String,String>();
 			session.setAttribute(sid, map);
 		}
-		HashMap map = (HashMap) session.getAttribute(sid);
+		HashMap<String,String> map = (HashMap) session.getAttribute(sid);
 		int num = Integer.parseInt(count);
 		if(num == 0){
 			map.remove(fid);
 		}else{
-			map.put(fid, num);
+			map.put(fid,count);
 		}
 		return;
 	}

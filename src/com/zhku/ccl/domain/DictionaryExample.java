@@ -164,73 +164,73 @@ public class DictionaryExample {
             return (Criteria) this;
         }
 
-        public Criteria andClassifyIsNull() {
-            addCriterion("classify is null");
+        public Criteria andDclassifyIsNull() {
+            addCriterion("dclassify is null");
             return (Criteria) this;
         }
 
-        public Criteria andClassifyIsNotNull() {
-            addCriterion("classify is not null");
+        public Criteria andDclassifyIsNotNull() {
+            addCriterion("dclassify is not null");
             return (Criteria) this;
         }
 
-        public Criteria andClassifyEqualTo(String value) {
-            addCriterion("classify =", value, "classify");
+        public Criteria andDclassifyEqualTo(String value) {
+            addCriterion("dclassify =", value, "dclassify");
             return (Criteria) this;
         }
 
-        public Criteria andClassifyNotEqualTo(String value) {
-            addCriterion("classify <>", value, "classify");
+        public Criteria andDclassifyNotEqualTo(String value) {
+            addCriterion("dclassify <>", value, "dclassify");
             return (Criteria) this;
         }
 
-        public Criteria andClassifyGreaterThan(String value) {
-            addCriterion("classify >", value, "classify");
+        public Criteria andDclassifyGreaterThan(String value) {
+            addCriterion("dclassify >", value, "dclassify");
             return (Criteria) this;
         }
 
-        public Criteria andClassifyGreaterThanOrEqualTo(String value) {
-            addCriterion("classify >=", value, "classify");
+        public Criteria andDclassifyGreaterThanOrEqualTo(String value) {
+            addCriterion("dclassify >=", value, "dclassify");
             return (Criteria) this;
         }
 
-        public Criteria andClassifyLessThan(String value) {
-            addCriterion("classify <", value, "classify");
+        public Criteria andDclassifyLessThan(String value) {
+            addCriterion("dclassify <", value, "dclassify");
             return (Criteria) this;
         }
 
-        public Criteria andClassifyLessThanOrEqualTo(String value) {
-            addCriterion("classify <=", value, "classify");
+        public Criteria andDclassifyLessThanOrEqualTo(String value) {
+            addCriterion("dclassify <=", value, "dclassify");
             return (Criteria) this;
         }
 
-        public Criteria andClassifyLike(String value) {
-            addCriterion("classify like", value, "classify");
+        public Criteria andDclassifyLike(String value) {
+            addCriterion("dclassify like", value, "dclassify");
             return (Criteria) this;
         }
 
-        public Criteria andClassifyNotLike(String value) {
-            addCriterion("classify not like", value, "classify");
+        public Criteria andDclassifyNotLike(String value) {
+            addCriterion("dclassify not like", value, "dclassify");
             return (Criteria) this;
         }
 
-        public Criteria andClassifyIn(List<String> values) {
-            addCriterion("classify in", values, "classify");
+        public Criteria andDclassifyIn(List<String> values) {
+            addCriterion("dclassify in", values, "dclassify");
             return (Criteria) this;
         }
 
-        public Criteria andClassifyNotIn(List<String> values) {
-            addCriterion("classify not in", values, "classify");
+        public Criteria andDclassifyNotIn(List<String> values) {
+            addCriterion("dclassify not in", values, "dclassify");
             return (Criteria) this;
         }
 
-        public Criteria andClassifyBetween(String value1, String value2) {
-            addCriterion("classify between", value1, value2, "classify");
+        public Criteria andDclassifyBetween(String value1, String value2) {
+            addCriterion("dclassify between", value1, value2, "dclassify");
             return (Criteria) this;
         }
 
-        public Criteria andClassifyNotBetween(String value1, String value2) {
-            addCriterion("classify not between", value1, value2, "classify");
+        public Criteria andDclassifyNotBetween(String value1, String value2) {
+            addCriterion("dclassify not between", value1, value2, "dclassify");
             return (Criteria) this;
         }
 

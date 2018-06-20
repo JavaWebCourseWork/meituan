@@ -47,4 +47,9 @@ public class StoreServiceImpl implements StoreService {
 		return list;
 	}
 
+	@Override
+	public int updateStoreInfo(Store store) {
+		return storeMapper.updateByPrimaryKey(store);
+	}
+
 }

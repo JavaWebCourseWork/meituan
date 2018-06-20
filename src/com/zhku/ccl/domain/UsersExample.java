@@ -304,133 +304,133 @@ public class UsersExample {
             return (Criteria) this;
         }
 
-        public Criteria andUheadportraitIsNull() {
-            addCriterion("uheadportrait is null");
+        public Criteria andUheadIsNull() {
+            addCriterion("uhead is null");
             return (Criteria) this;
         }
 
-        public Criteria andUheadportraitIsNotNull() {
-            addCriterion("uheadportrait is not null");
+        public Criteria andUheadIsNotNull() {
+            addCriterion("uhead is not null");
             return (Criteria) this;
         }
 
-        public Criteria andUheadportraitEqualTo(String value) {
-            addCriterion("uheadportrait =", value, "uheadportrait");
+        public Criteria andUheadEqualTo(String value) {
+            addCriterion("uhead =", value, "uhead");
             return (Criteria) this;
         }
 
-        public Criteria andUheadportraitNotEqualTo(String value) {
-            addCriterion("uheadportrait <>", value, "uheadportrait");
+        public Criteria andUheadNotEqualTo(String value) {
+            addCriterion("uhead <>", value, "uhead");
             return (Criteria) this;
         }
 
-        public Criteria andUheadportraitGreaterThan(String value) {
-            addCriterion("uheadportrait >", value, "uheadportrait");
+        public Criteria andUheadGreaterThan(String value) {
+            addCriterion("uhead >", value, "uhead");
             return (Criteria) this;
         }
 
-        public Criteria andUheadportraitGreaterThanOrEqualTo(String value) {
-            addCriterion("uheadportrait >=", value, "uheadportrait");
+        public Criteria andUheadGreaterThanOrEqualTo(String value) {
+            addCriterion("uhead >=", value, "uhead");
             return (Criteria) this;
         }
 
-        public Criteria andUheadportraitLessThan(String value) {
-            addCriterion("uheadportrait <", value, "uheadportrait");
+        public Criteria andUheadLessThan(String value) {
+            addCriterion("uhead <", value, "uhead");
             return (Criteria) this;
         }
 
-        public Criteria andUheadportraitLessThanOrEqualTo(String value) {
-            addCriterion("uheadportrait <=", value, "uheadportrait");
+        public Criteria andUheadLessThanOrEqualTo(String value) {
+            addCriterion("uhead <=", value, "uhead");
             return (Criteria) this;
         }
 
-        public Criteria andUheadportraitLike(String value) {
-            addCriterion("uheadportrait like", value, "uheadportrait");
+        public Criteria andUheadLike(String value) {
+            addCriterion("uhead like", value, "uhead");
             return (Criteria) this;
         }
 
-        public Criteria andUheadportraitNotLike(String value) {
-            addCriterion("uheadportrait not like", value, "uheadportrait");
+        public Criteria andUheadNotLike(String value) {
+            addCriterion("uhead not like", value, "uhead");
             return (Criteria) this;
         }
 
-        public Criteria andUheadportraitIn(List<String> values) {
-            addCriterion("uheadportrait in", values, "uheadportrait");
+        public Criteria andUheadIn(List<String> values) {
+            addCriterion("uhead in", values, "uhead");
             return (Criteria) this;
         }
 
-        public Criteria andUheadportraitNotIn(List<String> values) {
-            addCriterion("uheadportrait not in", values, "uheadportrait");
+        public Criteria andUheadNotIn(List<String> values) {
+            addCriterion("uhead not in", values, "uhead");
             return (Criteria) this;
         }
 
-        public Criteria andUheadportraitBetween(String value1, String value2) {
-            addCriterion("uheadportrait between", value1, value2, "uheadportrait");
+        public Criteria andUheadBetween(String value1, String value2) {
+            addCriterion("uhead between", value1, value2, "uhead");
             return (Criteria) this;
         }
 
-        public Criteria andUheadportraitNotBetween(String value1, String value2) {
-            addCriterion("uheadportrait not between", value1, value2, "uheadportrait");
+        public Criteria andUheadNotBetween(String value1, String value2) {
+            addCriterion("uhead not between", value1, value2, "uhead");
             return (Criteria) this;
         }
 
-        public Criteria andUroleIsNull() {
-            addCriterion("urole is null");
+        public Criteria andDidIsNull() {
+            addCriterion("did is null");
             return (Criteria) this;
         }
 
-        public Criteria andUroleIsNotNull() {
-            addCriterion("urole is not null");
+        public Criteria andDidIsNotNull() {
+            addCriterion("did is not null");
             return (Criteria) this;
         }
 
-        public Criteria andUroleEqualTo(Integer value) {
-            addCriterion("urole =", value, "urole");
+        public Criteria andDidEqualTo(Integer value) {
+            addCriterion("did =", value, "did");
             return (Criteria) this;
         }
 
-        public Criteria andUroleNotEqualTo(Integer value) {
-            addCriterion("urole <>", value, "urole");
+        public Criteria andDidNotEqualTo(Integer value) {
+            addCriterion("did <>", value, "did");
             return (Criteria) this;
         }
 
-        public Criteria andUroleGreaterThan(Integer value) {
-            addCriterion("urole >", value, "urole");
+        public Criteria andDidGreaterThan(Integer value) {
+            addCriterion("did >", value, "did");
             return (Criteria) this;
         }
 
-        public Criteria andUroleGreaterThanOrEqualTo(Integer value) {
-            addCriterion("urole >=", value, "urole");
+        public Criteria andDidGreaterThanOrEqualTo(Integer value) {
+            addCriterion("did >=", value, "did");
             return (Criteria) this;
         }
 
-        public Criteria andUroleLessThan(Integer value) {
-            addCriterion("urole <", value, "urole");
+        public Criteria andDidLessThan(Integer value) {
+            addCriterion("did <", value, "did");
             return (Criteria) this;
         }
 
-        public Criteria andUroleLessThanOrEqualTo(Integer value) {
-            addCriterion("urole <=", value, "urole");
+        public Criteria andDidLessThanOrEqualTo(Integer value) {
+            addCriterion("did <=", value, "did");
             return (Criteria) this;
         }
 
-        public Criteria andUroleIn(List<Integer> values) {
-            addCriterion("urole in", values, "urole");
+        public Criteria andDidIn(List<Integer> values) {
+            addCriterion("did in", values, "did");
             return (Criteria) this;
         }
 
-        public Criteria andUroleNotIn(List<Integer> values) {
-            addCriterion("urole not in", values, "urole");
+        public Criteria andDidNotIn(List<Integer> values) {
+            addCriterion("did not in", values, "did");
             return (Criteria) this;
         }
 
-        public Criteria andUroleBetween(Integer value1, Integer value2) {
-            addCriterion("urole between", value1, value2, "urole");
+        public Criteria andDidBetween(Integer value1, Integer value2) {
+            addCriterion("did between", value1, value2, "did");
             return (Criteria) this;
         }
 
-        public Criteria andUroleNotBetween(Integer value1, Integer value2) {
-            addCriterion("urole not between", value1, value2, "urole");
+        public Criteria andDidNotBetween(Integer value1, Integer value2) {
+            addCriterion("did not between", value1, value2, "did");
             return (Criteria) this;
         }
     }

@@ -21,8 +21,6 @@ public interface UsersMapper {
     List<Users> selectByExample(UsersExample example);
 
     Users selectByPrimaryKey(Integer uid);
-    Users selectByPhone(String uphone);
-    Users selectByPhoneAndPassword(Users user);
 
     int updateByExampleSelective(@Param("record") Users record, @Param("example") UsersExample example);
 
@@ -31,6 +29,12 @@ public interface UsersMapper {
     int updateByPrimaryKeySelective(Users record);
 
     int updateByPrimaryKey(Users record);
+    
+    
+    
+
+    Users selectByPhone(String uphone);
+    Users selectByPhoneAndPassword(Users user);
 
 	void updateUroleByUid(HashMap<String, Object> map);
 }
